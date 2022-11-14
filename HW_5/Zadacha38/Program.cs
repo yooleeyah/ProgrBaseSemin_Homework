@@ -1,14 +1,33 @@
-﻿double[] array = new double[4];
-double maxNumb = 0;
-double minNumb = 1;
-for (int i = 0; i < 4; i++) 
+﻿double GetMaxValue(double[] arr)
 {
-    array[i] = new Random().NextDouble();
-    Console.Write($"{array[i]}, ");
-    if (array[i] > maxNumb) maxNumb = array[i];
-    if (array[i] < minNumb) minNumb = array[i];
+    double maxNumb = 0;
+    for (int i = 0; i < arr.Length; i++) 
+    {
+        if (arr[i] > maxNumb) maxNumb = arr[i];
+    }
+    return maxNumb;
 }
- Console.WriteLine();
- Console.WriteLine($"max = {maxNumb}");
- Console.WriteLine($"min = {minNumb}");
- Console.WriteLine($"Разница = {maxNumb - minNumb}");
+
+double GetMinValue(double[] arr)
+{
+    double minNumb = 1;
+    for (int i = 0; i < arr.Length; i++) 
+    {
+        if (arr[i] < minNumb) minNumb = arr[i];
+    }
+    return minNumb;
+}
+
+double[] array = new double[10];
+for (int i = 0; i < array.Length; i++) 
+{
+    array[i] = new Random().NextDouble() * new Random().Next(1,10);
+    Console.Write($"{Math.Round(array[i],3)}, ");
+}
+
+Console.WriteLine();
+double maxResult = GetMaxValue(array);
+Console.WriteLine($"max = {Math.Round(maxResult, 3)}");
+double minResult = GetMinValue(array);
+Console.WriteLine($"min = {Math.Round(minResult, 3)}");
+Console.WriteLine($"Разница = {Math.Round(maxResult - minResult, 3)}");
