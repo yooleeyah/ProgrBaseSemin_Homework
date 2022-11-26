@@ -36,7 +36,6 @@ void SortRows(int[,] array)
     }
 }
 
-
 int[,] array = new int[3,4];
 FillArray(array);
 PrintArray(array);
